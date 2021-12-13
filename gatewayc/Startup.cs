@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
 
 namespace gatewayc
 {
@@ -45,6 +46,8 @@ namespace gatewayc
                     await context.Response.WriteAsync("API GATEWAY FUNCIONANDO");
                 });
             });
+
+            app.UseOcelot().Wait();
         }
     }
 }
